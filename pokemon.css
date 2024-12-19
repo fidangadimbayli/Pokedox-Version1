@@ -1,0 +1,87 @@
+button {
+ border-radius: 10px;
+    width: 80px;
+    font-size: large;
+    height: 40px;
+    hover: active;
+    
+}
+.seeall_button {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+    border-radius: 10px;
+    width: 90px;
+    font-size: large;
+
+}
+.normal_button {
+    color: black;
+    background-color: rgb(117, 158, 117);
+    width: 110px;
+}
+.fire_button {
+    color: black;
+    background-color: orange;
+}
+.water_button{
+    color: white;
+    background-color: rgb(118, 164, 228);
+    width: 100px;
+}
+.nav {
+    height: 200px;
+    background-color: rgb(186, 186, 186);
+}
+.card_pidgey {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 300px;
+    max-height: 500px;
+}
+.card_charmander {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 300px;
+}
+.card_squirtle {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 300px;
+}
+.normal_pidgey {
+    width: 60px;
+    font-size: small;
+    margin-bottom: 20px;
+    background-color: rgb(117, 158, 117);
+
+}
+.fire_charmander {
+    width: 60px;
+    font-size: small;
+    margin-bottom: 20px;
+    background-color: orange;
+}
+.water_squirtle {
+    width: 60px;
+    font-size: small;
+    margin-bottom: 20px;
+    background-color: rgb(118, 164, 228);
+}
+.navbar {
+    padding-top: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height: 120px;
+    padding-left: 30px;
+
+}
+.seeall_button_red {
+    color: black;
+    background-color: rgb(181, 30, 30);
+    height: 40px;
+    border-radius: 10px;
+    width: 90px;
+    font-size: large; }
