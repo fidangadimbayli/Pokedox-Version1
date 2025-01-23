@@ -1,52 +1,33 @@
-normal_button = document.getElementsByClassName("normal_button")[0]
+fetchButton = document.querySelector(".fetch-button");
 
-normal_button.addEventListener("click", function () {
-  card_pidgey = document.getElementsByClassName("card_pidgey")[0];
+fetchButton.addEventListener("click", async () => {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const data = await response.json();
 
-  card_pidgey.hidden = false;
-  card_charmander.hidden = true;
-  card_squirtle.hidden = true;
+    // Fetch details for each Pokemon
+    const pokemonPromises = data.results.map(async pokemon => {
+        const pokemonResponse = await fetch(pokemon.url);
+        return pokemonResponse.json();
+    });
+
+    const pokemonDetails = await Promise.all(pokemonPromises);
+
+    // Create and add Pokemon cards to the body
+    pokemonDetails.forEach(pokemon => {
+        const pokemonCard = document.createElement('div');
+        pokemonCard.classList.add('pokemon-card');
+
+        // Get Pokemon abilities
+        const abilities = pokemon.abilities
+            .map(ability => ability.ability.name)
+            .join(', ');
+
+        pokemonCard.innerHTML = `
+            <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+            <h3>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
+            <p>Abilities: ${abilities}</p>
+        `;
+
+        document.body.appendChild(pokemonCard);
+    });
 });
-
-fire_button = document.getElementsByClassName("fire_button") [0]
-
-fire_button.addEventListener("click", function() {
-    card_charmander = document.getElementsByClassName("card_charmander")[0];
-
-  card_charmander.hidden = false;
-  card_pidgey.hidden = true;
-  card_squirtle.hidden = true;
-})
-
-water_button = document.getElementsByClassName("water_button") [0]
-
-water_button.addEventListener("click", function() {
-    card_squirtle = document.getElementsByClassName("card_squirtle")[0];
-
-  card_charmander.hidden = true;
-  card_pidgey.hidden = true;
-  card_squirtle.hidden = false;
-})
-
-seeall_button = document.getElementsByClassName("seeall_button") [0]
-
-seeall_button.addEventListener("click", function() {
-    card_squirtle = document.getElementsByClassName("card_squirtle")[0];
-    card_squirtle = document.getElementsByClassName("card_squirtle")[0];
-    card_pidgey = document.getElementsByClassName("card_pidgey")[0];
-
-
-
-  card_charmander.hidden = false;
-  card_pidgey.hidden = false;
-  card_squirtle.hidden = false;
-})
-
-seeall_button = document.getElementsByClassName("seeall_button") [0]
-
-seeall_button.addEventListener("mouseover", function() {
-    var first = seeall_button.classList.add("seeall_button_red")
-})
-seeall_button.addEventListener("mouseleave", function() {
-    var first = seeall_button.classList.remove("seeall_button_red")
-})
